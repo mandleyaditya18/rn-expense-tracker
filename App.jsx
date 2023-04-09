@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet } from 'react-native'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
 import {
   useFonts,
@@ -7,6 +8,8 @@ import {
   Poppins_500Medium as poppins500,
   Poppins_600SemiBold as poppins600,
 } from '@expo-google-fonts/poppins'
+
+import { Home } from './src/screens'
 
 export default function App() {
   const [fontsLoaded] = useFonts({ poppins400, poppins500, poppins600 })
@@ -16,10 +19,12 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello, world!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar style="auto" />
+        <Home />
+      </SafeAreaView>
+    </SafeAreaProvider>
   )
 }
 
@@ -27,11 +32,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 30,
-    fontFamily: 'poppins500',
+    padding: 16,
   },
 })
