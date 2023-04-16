@@ -3,4 +3,16 @@ export const activityType = {
   INCOME: 'Income',
 }
 
-export const colors = {}
+export const colors = {
+  background: '#f8f8f8',
+  primary: '#6250D4',
+  secondary: '#EAE8F5',
+  text: '#1e1e1e',
+  mutedText: '#757575',
+  disabledText: '#b0b0b0',
+  sucessText: '#3ECE67',
+  successBackground: '#ECFBF0',
+  dangerText: '#FF3B31',
+  dangerBackground: '#FFF3E6',
+  white: '#fff',
+}

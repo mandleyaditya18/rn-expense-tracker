@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-import React from 'react'
 
 import { TransactionItem } from './TransactionItem'
+import { colors } from '../constants'
 
 const data = [...Array(20).keys()].map((_, index) => {
   return {
@@ -48,9 +48,10 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 24,
     fontFamily: 'poppins500',
+    color: colors.text,
   },
   seeAll: {
-    color: '#a5a5a5',
+    color: colors.mutedText,
     fontSize: 14,
     fontFamily: 'poppins500',
   },
