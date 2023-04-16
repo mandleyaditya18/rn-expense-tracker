@@ -10,23 +10,21 @@ const NavigationIcon = ({ route, isFocused }) => {
     [isFocused]
   )
 
-  const renderIcon = () => {
-    switch (route) {
-      case 'Home':
-        return <Ionicons name="home" size={26} color={iconColor} />
-      case 'Insights':
-        return <Ionicons name="stats-chart" size={26} color={iconColor} />
-      case 'Settings':
-        return <Ionicons name="settings" size={26} color={iconColor} />
-      case 'Add':
-        return <Ionicons name="add-circle" size={26} color={iconColor} />
-
-      default:
-        break
+  const iconName = useMemo(() => {
+    const icon = {
+      Home: 'home',
+      Insights: 'stats-chart',
+      Settings: 'settings',
+      Add: 'add-circle',
     }
-  }
+    return icon[route]
+  }, [route])
 
-  return <View>{renderIcon(route, isFocused)}</View>
+  return (
+    <View>
+      <Ionicons name={iconName} size={26} color={iconColor} />
+    </View>
+  )
 }
 
 NavigationIcon.propTypes = {
