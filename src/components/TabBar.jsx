@@ -30,13 +30,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
 
         return (
           <View key={index} style={[styles.mainItemContainer]}>
-            <Pressable
-              onPress={onPress}
-              style={{
-                paddingHorizontal: 12,
-                paddingVertical: 8,
-              }}
-            >
+            <Pressable onPress={onPress} style={styles.pressableContainer}>
               <View
                 style={[
                   styles.navigationIconContainer,
@@ -69,7 +63,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 1,
   },
-  pressableContainer: {},
+  pressableContainer: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
   navigationIconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
