@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native'
 import { TransactionActivityCard, RecentTransactions } from '../components'
-import { activityType } from '../constants'
+import { activityType, colors } from '../constants'
 
 const Home = () => {
   return (
@@ -24,10 +24,13 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 16,
+    paddingBottom: 8,
   },
   greeting: {
     fontSize: 24,
     fontFamily: 'poppins600',
+    color: colors.text,
   },
   activityContainer: {
     flexDirection: 'row',

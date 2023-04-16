@@ -1,27 +1,28 @@
 import { useMemo } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import PropTypes from 'prop-types'
-import { activityType } from '../constants'
+import { activityType, colors } from '../constants'
 import { Ionicons } from '@expo/vector-icons'
-import { Button } from '../designSystem'
 
 const TransactionActivityCard = ({ transactionActivityType }) => {
   const icon = useMemo(() => {
     const iconConfig = {
       [activityType.EXPENSES]: {
         iconName: 'arrow-up-circle-sharp',
-        color: '#f07f90',
+        color: colors.dangerText,
+        backgroundColor: colors.dangerBackground,
       },
       [activityType.INCOME]: {
         iconName: 'arrow-down-circle-sharp',
-        color: '#83d67a',
+        color: colors.sucessText,
+        backgroundColor: colors.successBackground,
       },
     }
     return iconConfig[transactionActivityType]
   }, [transactionActivityType, activityType])
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: icon.backgroundColor }]}>
       <Text style={styles.title}>{transactionActivityType}</Text>
       <View style={styles.amountContainer}>
         <Ionicons
@@ -32,7 +33,6 @@ const TransactionActivityCard = ({ transactionActivityType }) => {
         />
         <Text style={styles.amount}>&#8377; 3000</Text>
       </View>
-      <Button title={`Add ${transactionActivityType.toLowerCase()}`} />
     </View>
   )
 }
@@ -42,17 +42,18 @@ const styles = StyleSheet.create({
     padding: 8,
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#fff',
     borderRadius: 16,
     elevation: 4,
   },
   title: {
     fontSize: 16,
     fontFamily: 'poppins500',
+    color: colors.text,
   },
   amount: {
     fontSize: 24,
     fontFamily: 'poppins600',
+    color: colors.text,
   },
   amountContainer: {
     flexDirection: 'row',

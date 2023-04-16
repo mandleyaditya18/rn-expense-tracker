@@ -1,17 +1,20 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import PropTypes from 'prop-types'
+import { colors } from '../constants'
 
 const TransactionItem = ({ amount, category, title, date }) => {
   return (
     <View style={styles.container}>
       <View style={styles.detailsContainer}>
-        <Ionicons
-          style={styles.icon}
-          name="car-sport-sharp"
-          size={24}
-          color="black"
-        />
+        <View style={styles.categoryIconContainer}>
+          <Ionicons
+            style={styles.icon}
+            name="car-sport-sharp"
+            size={26}
+            color={colors.text}
+          />
+        </View>
         <View style={styles.detailsTextContainer}>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.date}>{date}</Text>
@@ -33,28 +36,32 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 16,
   },
+  categoryIconContainer: {
+    backgroundColor: colors.secondary,
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    justifyContent: 'center',
+  },
   icon: {
-    borderWidth: 1,
-    borderRadius: 4,
-    height: 30,
-    paddingVertical: 2,
-    paddingHorizontal: 4,
     textAlign: 'center',
+    borderColor: colors.text,
   },
   detailsTextContainer: {},
   title: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: 'poppins500',
+    color: colors.text,
   },
   date: {
     fontSize: 12,
-    color: '#a5a5a5',
+    color: colors.disabledText,
     fontFamily: 'poppins400',
   },
   amount: {
     fontSize: 16,
     fontFamily: 'poppins500',
-    color: '#f07f90',
+    color: colors.dangerText,
   },
 })
 
