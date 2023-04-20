@@ -3,6 +3,8 @@ import { RecentTransactions } from './RecentTransactions'
 import { TabBar } from './TabBar'
 import { TransactionActivityCard } from './TransactionActivityCard'
 import { TransactionItem } from './TransactionItem'
+import { AddBottomSheet } from './AddBottomSheet'
+import { BottomSheetBackground } from './BottomSheetBackground'
 
 export {
   NavigationIcon,
@@ -10,4 +12,6 @@ export {
   TransactionActivityCard,
   RecentTransactions,
   TransactionItem,
+  AddBottomSheet,
+  BottomSheetBackground,
 }

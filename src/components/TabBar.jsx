@@ -1,9 +1,13 @@
+import { useRef } from 'react'
 import { StyleSheet, View, Pressable } from 'react-native'
 import PropTypes from 'prop-types'
 import { NavigationIcon } from './NavigationIcon'
+import { AddBottomSheet } from './AddBottomSheet'
 import { colors } from '../constants'
 
 const TabBar = ({ state, descriptors, navigation }) => {
+  const bottomSheetRef = useRef(null)
+
   return (
     <View style={styles.mainContainer}>
       {state.routes.map((route, index) => {
@@ -23,7 +27,9 @@ const TabBar = ({ state, descriptors, navigation }) => {
             target: route.key,
           })
 
-          if (!isFocused && !event.defaultPrevented) {
+          if (route.name === 'Add') {
+            bottomSheetRef?.current?.present()
+          } else if (!isFocused && !event.defaultPrevented) {
             navigation.navigate(route.name)
           }
         }
@@ -40,6 +46,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
                 <NavigationIcon route={label} isFocused={isFocused} />
               </View>
             </Pressable>
+            <AddBottomSheet ref={bottomSheetRef} />
           </View>
         )
       })}
