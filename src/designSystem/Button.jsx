@@ -1,33 +1,40 @@
-import { StyleSheet, Text, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Pressable } from 'react-native'
 import PropTypes from 'prop-types'
+import { colors } from '../constants'
 
 const Button = ({ title, onPress }) => {
   return (
-    <Pressable
-      onPress={onPress}
-      style={({ pressed }) =>
-        pressed ? [styles.container, styles.pressed] : styles.container
-      }
-    >
-      <Text style={styles.title}>{title}</Text>
-    </Pressable>
+    <View style={styles.outerContainer}>
+      <Pressable
+        onPress={onPress}
+        style={styles.container}
+        android_ripple={{ color: '#503ade' }}
+      >
+        <Text style={styles.title}>{title}</Text>
+      </Pressable>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
+  outerContainer: {
+    overflow: 'hidden',
+    borderRadius: 24,
+  },
   container: {
-    backgroundColor: '#bda8e6',
+    backgroundColor: colors.primary,
     paddingVertical: 4,
     paddingHorizontal: 8,
-    borderRadius: 24,
     borderWidth: 1,
-    borderColor: '#ac88ef',
+    borderRadius: 24,
+    borderColor: colors.secondary,
     elevation: 2,
   },
   title: {
     fontSize: 16,
-    fontFamily: 'poppins500',
-    color: 'white',
+    fontFamily: 'poppins600',
+    color: colors.white,
+    textAlign: 'center',
   },
   pressed: {
     opacity: 0.7,
