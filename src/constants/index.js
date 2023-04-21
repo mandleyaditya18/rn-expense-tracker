@@ -16,3 +16,8 @@ export const colors = {
   dangerBackground: '#FFF3E6',
   white: '#fff',
 }
+
+export const transactionTypes = [
+  { id: 'expense', label: 'Expense' },
+  { id: 'income', label: 'Income' },
+]
