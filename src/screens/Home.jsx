@@ -1,18 +1,16 @@
 import { View, Text, StyleSheet } from 'react-native'
-import { TransactionActivityCard, RecentTransactions } from '../components'
-import { activityType, colors } from '../constants'
+import { RecentTransactions, SummaryCard } from '../components'
+import { colors } from '../constants'
 
 const Home = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.greeting}>Welcome, Aditya!</Text>
+      <Text
+        style={styles.summaryInfo}
+      >{`Here's your summary for this month`}</Text>
       <View style={styles.activityContainer}>
-        <TransactionActivityCard
-          transactionActivityType={activityType.EXPENSES}
-        />
-        <TransactionActivityCard
-          transactionActivityType={activityType.INCOME}
-        />
+        <SummaryCard />
       </View>
       <View style={styles.recentTransactionsContainer}>
         <RecentTransactions />
@@ -40,6 +38,11 @@ const styles = StyleSheet.create({
   },
   recentTransactionsContainer: {
     flex: 1,
+  },
+  summaryInfo: {
+    fontSize: 16,
+    fontFamily: 'poppins500',
+    color: colors.mutedText,
   },
 })
 
