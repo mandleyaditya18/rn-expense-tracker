@@ -1,21 +1,18 @@
-import { useState } from 'react'
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 
 import { RadioButton } from 'react-native-paper'
 import { colors } from '../constants'
 import PropTypes from 'prop-types'
 
-const RadioButtonGroup = ({ items, selected }) => {
-  const [value, setValue] = useState(selected)
-
+const RadioButtonGroup = ({ items, selected, onChange }) => {
   return (
     <RadioButton.Group
-      onValueChange={(newValue) => setValue(newValue)}
-      value={value}
+      onValueChange={(newValue) => onChange(newValue)}
+      value={selected}
     >
       <View style={styles.container}>
         {items.map((item) => (
-          <Pressable key={item.id} onPress={() => setValue(item.id)}>
+          <Pressable key={item.id} onPress={() => onChange(item.id)}>
             <View style={styles.itemContainer}>
               <RadioButton
                 value={item.id}
@@ -55,6 +52,7 @@ RadioButtonGroup.propTypes = {
     })
   ),
   selected: PropTypes.string,
+  onChange: PropTypes.func,
 }
 
 export { RadioButtonGroup }

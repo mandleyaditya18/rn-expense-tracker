@@ -15,7 +15,7 @@ import {
   Poppins_600SemiBold as poppins600,
 } from '@expo-google-fonts/poppins'
 
-import { Home, Insights, Settings, Add } from './src/screens'
+import { Home, Insights, Settings, Add, AddTransaction } from './src/screens'
 import { TabBar } from './src/components'
 import { colors } from './src/constants'
 
@@ -57,9 +57,16 @@ export default function App() {
               <NavigationContainer>
                 <Stack.Navigator
                   initialRouteName={'BottomTabs'}
-                  screenOptions={{ headerShown: false }}
+                  screenOptions={{
+                    headerShown: false,
+                    contentStyle: { backgroundColor: colors.background },
+                  }}
                 >
                   <Stack.Screen name="BottomTabs" component={TabNavigator} />
+                  <Stack.Screen
+                    name="AddTransaction"
+                    component={AddTransaction}
+                  />
                 </Stack.Navigator>
               </NavigationContainer>
             </SafeAreaView>

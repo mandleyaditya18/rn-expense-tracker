@@ -1,14 +1,30 @@
-import { useMemo, forwardRef } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { useMemo, useCallback, useState, forwardRef } from 'react'
+import { View, StyleSheet } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { BottomSheetModal } from '@gorhom/bottom-sheet'
 
-import { RadioButtonGroup, Button } from '../designSystem'
+import { RadioButtonGroup, Button, Heading } from '../designSystem'
 import { BottomSheetBackground } from './BottomSheetBackground'
 
 import { transactionTypes } from '../constants'
 
 const AddBottomSheet = forwardRef((props, ref) => {
+  const navigation = useNavigation()
+
+  const [selectedOption, setSelectedOption] = useState(
+    transactionTypes?.[0]?.id
+  )
+
   const snapPoints = useMemo(() => ['10%', '30%'], [])
+
+  const onPressAdd = useCallback(() => {
+    navigation.navigate('AddTransaction', {
+      transactionType: transactionTypes.find(
+        (item) => item.id === selectedOption
+      ).label,
+    })
+    ref?.current?.dismiss()
+  }, [navigation, selectedOption])
 
   return (
     <BottomSheetModal
@@ -19,13 +35,14 @@ const AddBottomSheet = forwardRef((props, ref) => {
       backgroundComponent={BottomSheetBackground}
     >
       <View style={styles.container}>
-        <Text style={styles.heading}>Add Transaction</Text>
+        <Heading title="Add Transaction" />
         <View style={styles.content}>
           <RadioButtonGroup
             items={transactionTypes}
-            selected={transactionTypes?.[0]?.id}
+            selected={selectedOption}
+            onChange={setSelectedOption}
           />
-          <Button title="Add" onPress={() => null} />
+          <Button title="Add" onPress={onPressAdd} />
         </View>
       </View>
     </BottomSheetModal>
@@ -36,11 +53,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-  },
-  heading: {
-    fontFamily: 'poppins600',
-    fontSize: 24,
-    textAlign: 'center',
   },
   content: {
     flex: 1,
