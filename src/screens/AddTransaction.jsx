@@ -1,6 +1,7 @@
 import { StyleSheet, View } from 'react-native'
 
 import { Heading, BackButton } from '../designSystem'
+import { TransactionForm } from '../components'
 
 import PropTypes from 'prop-types'
 
@@ -14,6 +15,7 @@ const AddTransaction = ({ route }) => {
         <Heading title={`Add ${transactionType}`} />
         <View />
       </View>
+      <TransactionForm />
     </View>
   )
 }

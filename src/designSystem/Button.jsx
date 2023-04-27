@@ -2,15 +2,24 @@ import { StyleSheet, Text, View, Pressable } from 'react-native'
 import PropTypes from 'prop-types'
 import { colors } from '../constants'
 
-const Button = ({ title, onPress }) => {
+const Button = ({ title, type, onPress }) => {
+  const buttonStyle = [
+    styles.container,
+    type === 'secondary' && styles.secondary,
+  ]
+  const textStyle = [styles.title, type === 'secondary' && styles.secondaryText]
+  const rippleStyle = {
+    color: type === 'secondary' ? colors.secondary : '#503ade',
+  }
+
   return (
     <View style={styles.outerContainer}>
       <Pressable
         onPress={onPress}
-        style={styles.container}
-        android_ripple={{ color: '#503ade' }}
+        style={buttonStyle}
+        android_ripple={rippleStyle}
       >
-        <Text style={styles.title}>{title}</Text>
+        <Text style={textStyle}>{title}</Text>
       </Pressable>
     </View>
   )
@@ -36,13 +45,18 @@ const styles = StyleSheet.create({
     color: colors.white,
     textAlign: 'center',
   },
-  pressed: {
-    opacity: 0.7,
+  secondary: {
+    backgroundColor: colors.background,
+    borderColor: colors.background,
+  },
+  secondaryText: {
+    color: colors.mutedText,
   },
 })
 
 Button.propTypes = {
   title: PropTypes.string,
+  type: PropTypes.string,
   onPress: PropTypes.func,
 }
 

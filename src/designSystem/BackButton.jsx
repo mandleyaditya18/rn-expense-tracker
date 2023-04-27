@@ -1,21 +1,16 @@
-import { useCallback } from 'react'
 import { StyleSheet, Pressable } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { useGoBack } from '../hooks'
 
 import { Ionicons } from '@expo/vector-icons'
 import { colors } from '../constants'
 
 const BackButton = () => {
-  const navigation = useNavigation()
-
-  const backButtonHandler = useCallback(() => {
-    navigation.goBack()
-  }, [navigation])
+  const { goBack } = useGoBack()
 
   return (
     <Pressable
       style={styles.back}
-      onPress={backButtonHandler}
+      onPress={goBack}
       android_ripple={{ color: colors.disabledText }}
     >
       <Ionicons name="md-chevron-back-outline" size={24} color="black" />
