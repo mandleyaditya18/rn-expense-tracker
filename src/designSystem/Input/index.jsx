@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, TextInput } from 'react-native'
 
+import { colors } from '../../constants'
+import { defaultStyle } from './styles'
+
 import PropTypes from 'prop-types'
-import { colors } from '../constants'
 
 const Input = ({ type, label, invalid, style, inputConfig }) => {
   const inputStyles = [styles.input]
@@ -31,35 +33,7 @@ const Input = ({ type, label, invalid, style, inputConfig }) => {
   )
 }
 
-const styles = StyleSheet.create({
-  inputContainer: {},
-  label: {
-    color: colors.text,
-    fontFamily: 'poppins400',
-    fontSize: 12,
-    marginBottom: 4,
-  },
-  input: {
-    backgroundColor: colors.secondary,
-    padding: 8,
-    fontFamily: 'poppins500',
-    fontSize: 16,
-    color: colors.text,
-    borderRadius: 8,
-  },
-  inputMultiline: {
-    minHeight: 120,
-    verticalAlign: 'top',
-  },
-  invalidInput: {
-    backgroundColor: colors.dangerBackground,
-    borderWidth: 1,
-    borderColor: colors.dangerText,
-  },
-  invalidLabel: {
-    color: colors.dangerText,
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 Input.propTypes = {
   type: PropTypes.string,

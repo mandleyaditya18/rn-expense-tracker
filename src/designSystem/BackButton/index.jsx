@@ -1,8 +1,10 @@
 import { StyleSheet, Pressable } from 'react-native'
-import { useGoBack } from '../hooks'
-
 import { Ionicons } from '@expo/vector-icons'
-import { colors } from '../constants'
+
+import { useGoBack } from '../../hooks'
+
+import { colors } from '../../constants'
+import { defaultStyle } from './styles'
 
 const BackButton = () => {
   const { goBack } = useGoBack()
@@ -18,13 +20,6 @@ const BackButton = () => {
   )
 }
 
-const styles = StyleSheet.create({
-  back: {
-    borderWidth: 1,
-    borderColor: colors.text,
-    borderRadius: 6,
-    padding: 2,
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 export { BackButton }

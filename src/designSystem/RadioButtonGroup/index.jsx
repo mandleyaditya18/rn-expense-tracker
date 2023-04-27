@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
-
 import { RadioButton } from 'react-native-paper'
-import { colors } from '../constants'
+
+import { colors } from '../../constants'
+import { defaultStyle } from './styles'
+
 import PropTypes from 'prop-types'
 
 const RadioButtonGroup = ({ items, selected, onChange }) => {
@@ -28,21 +30,7 @@ const RadioButtonGroup = ({ items, selected, onChange }) => {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    gap: 8,
-  },
-  itemContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  itemLabel: {
-    fontFamily: 'poppins400',
-    fontSize: 18,
-    marginTop: 4,
-    color: colors.text,
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 RadioButtonGroup.propTypes = {
   items: PropTypes.arrayOf(

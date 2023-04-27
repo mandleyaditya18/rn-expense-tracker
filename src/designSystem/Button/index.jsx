@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
+
+import { colors } from '../../constants'
+import { defaultStyle } from './styles'
+
 import PropTypes from 'prop-types'
-import { colors } from '../constants'
 
 const Button = ({ title, type, onPress }) => {
   const buttonStyle = [
@@ -25,34 +28,7 @@ const Button = ({ title, type, onPress }) => {
   )
 }
 
-const styles = StyleSheet.create({
-  outerContainer: {
-    overflow: 'hidden',
-    borderRadius: 24,
-  },
-  container: {
-    backgroundColor: colors.primary,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-    borderWidth: 1,
-    borderRadius: 24,
-    borderColor: colors.secondary,
-    elevation: 2,
-  },
-  title: {
-    fontSize: 16,
-    fontFamily: 'poppins600',
-    color: colors.white,
-    textAlign: 'center',
-  },
-  secondary: {
-    backgroundColor: colors.background,
-    borderColor: colors.background,
-  },
-  secondaryText: {
-    color: colors.mutedText,
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 Button.propTypes = {
   title: PropTypes.string,
