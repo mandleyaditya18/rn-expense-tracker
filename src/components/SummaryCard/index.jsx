@@ -2,8 +2,9 @@ import { StyleSheet, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Ionicons } from '@expo/vector-icons'
 
-import { SummaryCardAmount } from './SummaryCardAmount'
-import { activityType, colors } from '../constants'
+import { SummaryCardAmount } from '../SummaryCardAmount'
+import { activityType, colors } from '../../constants'
+import { defaultStyle } from './styles'
 
 const SummaryCard = () => {
   return (
@@ -37,19 +38,6 @@ const SummaryCard = () => {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    flex: 1,
-    borderRadius: 16,
-    elevation: 4,
-    gap: 16,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 export { SummaryCard }

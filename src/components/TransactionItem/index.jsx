@@ -1,7 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+
+import { colors } from '../../constants'
+import { defaultStyle } from './styles'
+
 import PropTypes from 'prop-types'
-import { colors } from '../constants'
 
 const TransactionItem = ({ amount, category, title, date }) => {
   return (
@@ -25,45 +28,7 @@ const TransactionItem = ({ amount, category, title, date }) => {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 4,
-    marginTop: 8,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  detailsContainer: {
-    flexDirection: 'row',
-    gap: 16,
-  },
-  categoryIconContainer: {
-    backgroundColor: colors.secondary,
-    borderRadius: 6,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    justifyContent: 'center',
-  },
-  icon: {
-    textAlign: 'center',
-    borderColor: colors.text,
-  },
-  detailsTextContainer: {},
-  title: {
-    fontSize: 18,
-    fontFamily: 'poppins500',
-    color: colors.text,
-  },
-  date: {
-    fontSize: 12,
-    color: colors.disabledText,
-    fontFamily: 'poppins400',
-  },
-  amount: {
-    fontSize: 16,
-    fontFamily: 'poppins500',
-    color: colors.dangerText,
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 TransactionItem.propTypes = {
   amount: PropTypes.number,

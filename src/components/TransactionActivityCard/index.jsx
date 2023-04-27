@@ -1,8 +1,11 @@
 import { useMemo } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import PropTypes from 'prop-types'
-import { activityType, colors } from '../constants'
 import { Ionicons } from '@expo/vector-icons'
+
+import { activityType, colors } from '../../constants'
+import { defaultStyle } from './styles'
+
+import PropTypes from 'prop-types'
 
 const TransactionActivityCard = ({ transactionActivityType }) => {
   const icon = useMemo(() => {
@@ -37,32 +40,7 @@ const TransactionActivityCard = ({ transactionActivityType }) => {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 8,
-    flex: 1,
-    alignItems: 'center',
-    borderRadius: 16,
-    elevation: 4,
-  },
-  title: {
-    fontSize: 16,
-    fontFamily: 'poppins500',
-    color: colors.text,
-  },
-  amount: {
-    fontSize: 24,
-    fontFamily: 'poppins600',
-    color: colors.text,
-  },
-  amountContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  icon: {
-    marginRight: 4,
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 TransactionActivityCard.propTypes = {
   transactionActivityType: PropTypes.string,

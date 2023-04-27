@@ -1,8 +1,9 @@
 import { StyleSheet, View } from 'react-native'
 
-import { Button, Input } from '../designSystem'
+import { Button, Input } from '../../designSystem'
+import { defaultStyle } from './styles'
 
-import { useTransactionForm } from '../hooks'
+import { useTransactionForm } from '../../hooks'
 
 const TransactionForm = () => {
   const { form, handleChange, handleSubmit, handleCancel } =
@@ -77,29 +78,6 @@ const TransactionForm = () => {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    gap: 20,
-    marginTop: 20,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 20,
-  },
-  rowInputs: {
-    flex: 1,
-  },
-  submitRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    gap: 20,
-    paddingHorizontal: 40,
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 export { TransactionForm }

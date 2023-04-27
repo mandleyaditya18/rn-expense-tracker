@@ -3,10 +3,11 @@ import { View, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { BottomSheetModal } from '@gorhom/bottom-sheet'
 
-import { RadioButtonGroup, Button, Heading } from '../designSystem'
-import { BottomSheetBackground } from './BottomSheetBackground'
+import { RadioButtonGroup, Button, Heading } from '../../designSystem'
+import { BottomSheetBackground } from '../BottomSheetBackground'
 
-import { transactionTypes } from '../constants'
+import { transactionTypes } from '../../constants'
+import { defaultStyle } from './styles'
 
 const AddBottomSheet = forwardRef((props, ref) => {
   const navigation = useNavigation()
@@ -49,18 +50,7 @@ const AddBottomSheet = forwardRef((props, ref) => {
   )
 })
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 16,
-  },
-  content: {
-    flex: 1,
-    justifyContent: 'space-between',
-    paddingTop: 12,
-    paddingBottom: 32,
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 AddBottomSheet.displayName = 'AddBottomSheet'
 

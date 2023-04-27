@@ -6,6 +6,8 @@ import Animated, {
   interpolateColor,
 } from 'react-native-reanimated'
 
+import { defaultStyle } from './styles'
+
 import PropTypes from 'prop-types'
 
 const BottomSheetBackground = ({ style, animatedIndex }) => {
@@ -27,20 +29,7 @@ const BottomSheetBackground = ({ style, animatedIndex }) => {
   return <Animated.View pointerEvents="none" style={containerStyle} />
 }
 
-const bottomSheetStyle = StyleSheet.create({
-  background: {
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 8,
-  },
-})
+const bottomSheetStyle = StyleSheet.create({ ...defaultStyle })
 
 BottomSheetBackground.propTypes = {
   style: PropTypes.object,

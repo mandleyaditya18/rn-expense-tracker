@@ -1,8 +1,10 @@
 import { useMemo } from 'react'
 import { View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+
+import { colors } from '../../constants'
+
 import PropTypes from 'prop-types'
-import { colors } from '../constants'
 
 const NavigationIcon = ({ route, isFocused }) => {
   const iconColor = useMemo(

@@ -1,9 +1,11 @@
 import { useMemo } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+
+import { activityType, colors } from '../../constants'
+import { defaultStyle } from './styles'
 
 import PropTypes from 'prop-types'
-import { Ionicons } from '@expo/vector-icons'
-import { activityType, colors } from '../constants'
 
 const SummaryCardAmount = ({ label, amount, transactionActivityType }) => {
   const icon = useMemo(() => {
@@ -44,22 +46,7 @@ const SummaryCardAmount = ({ label, amount, transactionActivityType }) => {
   )
 }
 
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    gap: 4,
-  },
-  label: {
-    fontFamily: 'poppins500',
-    fontSize: 16,
-    color: colors.mutedText,
-  },
-  amount: {
-    fontFamily: 'poppins600',
-    fontSize: 24,
-    color: colors.text,
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 SummaryCardAmount.propTypes = {
   label: PropTypes.string,
