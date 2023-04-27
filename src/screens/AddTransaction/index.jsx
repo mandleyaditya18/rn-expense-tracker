@@ -1,7 +1,8 @@
 import { StyleSheet, View } from 'react-native'
 
-import { Heading, BackButton } from '../designSystem'
-import { TransactionForm } from '../components'
+import { Heading, BackButton } from '../../designSystem'
+import { TransactionForm } from '../../components'
+import { defaultStyle } from './styles'
 
 import PropTypes from 'prop-types'
 
@@ -20,17 +21,7 @@ const AddTransaction = ({ route }) => {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 AddTransaction.propTypes = {
   route: PropTypes.object,

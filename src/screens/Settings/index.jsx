@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+
+import { defaultStyle } from './styles'
 
 const Settings = () => {
   return (
@@ -9,10 +10,6 @@ const Settings = () => {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-})
+const styles = StyleSheet.create({ ...defaultStyle })
 
 export { Settings }
