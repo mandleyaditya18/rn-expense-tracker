@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native'
 
-import { Button, Input } from '../../designSystem'
+import { Button, Input, DatePicker } from '../../designSystem'
 import { defaultStyle } from './styles'
 
 import { useTransactionForm } from '../../hooks'
@@ -33,16 +33,11 @@ const TransactionForm = () => {
             onChangeText: handleChange.bind(this, 'amount'),
           }}
         />
-        <Input
-          type="default"
+        <DatePicker
           label="Date"
           style={styles.rowInputs}
-          invalid={!form.date.isValid}
-          inputConfig={{
-            value: form.date.value,
-            placeholder: 'YYYY-MM-DD',
-            onChangeText: handleChange.bind(this, 'date'),
-          }}
+          value={form.date.value}
+          onChange={handleChange.bind(this, 'date')}
         />
       </View>
       <Input

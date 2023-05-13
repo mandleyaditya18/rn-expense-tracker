@@ -22,7 +22,7 @@ const useTransactionForm = () => {
       isValid: true,
     },
     date: {
-      value: '',
+      value: new Date(),
       isValid: true,
     },
   })
@@ -37,23 +37,13 @@ const useTransactionForm = () => {
     const isTitleValid = form.title.value.trim().length > 0
     const isAmountValid = !isNaN(form.amount.value) && form.amount.value > 0
     const isCategoryValid = form.category.value.trim().length > 0
-    const isDescriptionValid = form.description.value.trim().length > 0
-    const isDateValid = form.date.value.trim().length > 0
 
-    if (
-      !isTitleValid ||
-      !isAmountValid ||
-      !isCategoryValid ||
-      !isDescriptionValid ||
-      !isDateValid
-    ) {
+    if (!isTitleValid || !isAmountValid || !isCategoryValid) {
       setForm((prev) => ({
         ...prev,
         title: { ...prev.title, isValid: isTitleValid },
         amount: { ...prev.amount, isValid: isAmountValid },
         category: { ...prev.category, isValid: isCategoryValid },
-        description: { ...prev.description, isValid: isDescriptionValid },
-        date: { ...prev.date, isValid: isDateValid },
       }))
 
       return
@@ -82,7 +72,7 @@ const useTransactionForm = () => {
         isValid: true,
       },
       date: {
-        value: '',
+        value: new Date(),
         isValid: true,
       },
     })
