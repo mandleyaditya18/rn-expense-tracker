@@ -21,3 +21,15 @@ export const transactionTypes = [
   { id: 'expense', label: 'Expense' },
   { id: 'income', label: 'Income' },
 ]
+
+export const categories = [
+  { id: 'rent', label: 'Rent' },
+  { id: 'grocery', label: 'Grocery' },
+  { id: 'bills', label: 'Bills' },
+  { id: 'emi', label: 'EMI' },
+  { id: 'shopping', label: 'Shopping' },
+  { id: 'entertainment', label: 'Entertainment' },
+  { id: 'maintenance', label: 'Maintenance' },
+  { id: 'healthcare', label: 'Healthcare' },
+  { id: 'others', label: 'Others' },
+]
