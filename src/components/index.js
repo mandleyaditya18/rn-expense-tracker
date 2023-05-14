@@ -8,6 +8,7 @@ import { BottomSheetBackground } from './BottomSheetBackground'
 import { SummaryCard } from './SummaryCard'
 import { SummaryCardAmount } from './SummaryCardAmount'
 import { TransactionForm } from './TransactionForm'
+import { CategoryModal } from './CategoryModal'
 
 export {
   NavigationIcon,
@@ -20,4 +21,5 @@ export {
   SummaryCard,
   SummaryCardAmount,
   TransactionForm,
+  CategoryModal,
 }

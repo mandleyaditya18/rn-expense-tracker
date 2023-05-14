@@ -1,13 +1,20 @@
 import { StyleSheet, View } from 'react-native'
 
 import { Button, Input, DatePicker } from '../../designSystem'
+import { CategoryModal } from '../CategoryModal'
 import { defaultStyle } from './styles'
 
 import { useTransactionForm } from '../../hooks'
 
 const TransactionForm = () => {
-  const { form, handleChange, handleSubmit, handleCancel } =
-    useTransactionForm()
+  const {
+    form,
+    handleChange,
+    handleSubmit,
+    handleCancel,
+    showCategoryModal,
+    setShowCategoryModal,
+  } = useTransactionForm()
 
   return (
     <View style={styles.container}>
@@ -40,15 +47,11 @@ const TransactionForm = () => {
           onChange={handleChange.bind(this, 'date')}
         />
       </View>
-      <Input
-        type="default"
-        label="Category"
-        invalid={!form.category.isValid}
-        inputConfig={{
-          value: form.category.value,
-          placeholder: 'Category',
-          onChangeText: handleChange.bind(this, 'category'),
-        }}
+      <CategoryModal
+        show={showCategoryModal}
+        setShow={setShowCategoryModal}
+        form={form}
+        handleChange={handleChange}
       />
       <Input
         type="default"

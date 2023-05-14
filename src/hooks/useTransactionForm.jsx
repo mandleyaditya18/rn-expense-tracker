@@ -27,6 +27,8 @@ const useTransactionForm = () => {
     },
   })
 
+  const [showCategoryModal, setShowCategoryModal] = useState(false)
+
   const handleChange = useCallback((inputType, enteredValue) => {
     setForm((prev) => {
       return { ...prev, [inputType]: { value: enteredValue, isValid: true } }
@@ -89,6 +91,8 @@ const useTransactionForm = () => {
     handleSubmit,
     handleCancel,
     resetForm,
+    showCategoryModal,
+    setShowCategoryModal,
   }
 
   return values
