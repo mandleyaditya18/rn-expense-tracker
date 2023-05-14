@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 import { StyleSheet, Pressable, ScrollView, View } from 'react-native'
 import { Modal, RadioButtonGroup, Input, Button } from '../../designSystem'
 
@@ -14,6 +14,10 @@ const CategoryModal = ({ show, setShow, form, handleChange }) => {
     setShow(false)
   }, [handleChange, setShow, category])
 
+  const categoryLabel = useMemo(() => {
+    return categories.find((item) => item.id === form.category.value)?.label
+  }, [categories, form.category.value])
+
   return (
     <>
       <Pressable onPress={() => setShow(true)}>
@@ -22,8 +26,7 @@ const CategoryModal = ({ show, setShow, form, handleChange }) => {
           label="Category"
           invalid={!form.category.isValid}
           inputConfig={{
-            value: categories.find((item) => item.id === form.category.value)
-              ?.label,
+            value: categoryLabel,
             placeholder: 'Category',
             readOnly: true,
           }}
